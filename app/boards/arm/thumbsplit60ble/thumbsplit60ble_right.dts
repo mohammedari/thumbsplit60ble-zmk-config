@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) 2024 Kazuyuki Arimatsu
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "thumbsplit60ble.dtsi"
+
+/ {
+	default_kscan: kscan_0 {
+		compatible = "zmk,kscan-gpio-direct";
+		wakeup-source;
+		input-gpios
+			// row0
+			= <&gpio1  8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row1
+			, <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0  3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row2
+			, <&gpio0 30 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 25 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row3
+			, <&gpio0 26 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row4
+			, <&gpio0  5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+	};
+};
+
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 6)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 8)>,
+                <NRF_PSEL(SPIM_MISO, 0, 14)> ; // unused pin
+        };
+    };
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 6)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 8)>,
+                <NRF_PSEL(SPIM_MISO, 0, 14)>; // unused pin
+            low-power-enable;
+        };
+    };
+};
+
+nice_view_spi: &spi0 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 27 GPIO_ACTIVE_HIGH>;
+};
+
+&default_transform {
+	col-offset = <28>;
+};
