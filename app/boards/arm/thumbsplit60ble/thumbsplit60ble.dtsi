@@ -23,8 +23,10 @@
 	vbatt: vbatt {
 		compatible = "zmk,battery-voltage-divider";
 		io-channels = <&adc 2>; //P0.04
-		output-ohms = <2000000>;
-		full-ohms = <(1000000 + 2000000)>;
+
+		// The values are weired, but based on actual measurement
+		output-ohms = <1209500>;
+		full-ohms = <(1000000 + 1209500)>;
 	};
 
 	default_transform: keymap_transform_0 {

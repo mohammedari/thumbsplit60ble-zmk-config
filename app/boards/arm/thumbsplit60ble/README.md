@@ -16,7 +16,7 @@ west build -p -b thumbsplit60ble_right -d build/right -- -DSHIELD=nice_view
 west build -p -b thumbsplit60ble_left  -d build/left  -- 
 ```
 
-Double click reset button of the keyboard and drag and drop `app/build/left/zmk.uf2` for left and `app/build/right/zmk.uf2` for right.
+Double click reset button of the keyboard and drag and drop `app/build/left/zephyr/zmk.uf2` for left and `app/build/right/zephyr/zmk.uf2` for right.
 
 ### Note on ZMK Studio Support
 
