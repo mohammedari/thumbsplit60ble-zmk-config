@@ -1,0 +1,13 @@
+file_format: "1"
+id: thumbsplit60ble
+name: Thumbsplit60 BLE
+type: board
+url: https://github.com/mohammedari/zmk
+requires: []
+exposes: [nice_view_spi]
+features:
+  - keys
+  - display
+siblings:
+  - thumbsplit60ble_left
+  - thumbsplit60ble_right
