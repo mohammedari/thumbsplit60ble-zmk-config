@@ -27,6 +27,7 @@ west build -p -b thumbsplit60ble_left  -S studio-rpc-usb-uart -d build/left  -- 
 ```
 
 However, Windows environment may cause the following error. You have to parepare another environment other than Windows to build with ZMK support.
+TODO: confirm that changing git checkout configuration to as-is may solve this issue
 ```
 [42/558] Generating nanopb/generator/proto/nanopb_pb2.py
 FAILED: nanopb/generator/proto/nanopb_pb2.py /workspaces/zmk2/app/build/right/nanopb/generator/proto/nanopb_pb2.py 
