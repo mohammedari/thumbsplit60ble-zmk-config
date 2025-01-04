@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) 2024 Kazuyuki Arimatsu
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "thumbsplit60ble.dtsi"
+
+/ {
+	default_kscan: kscan_0 {
+		compatible = "zmk,kscan-gpio-direct";
+		wakeup-source;
+		input-gpios
+			// row0
+			= <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0  3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row1
+			, <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0  2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row2
+			, <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 30 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row3
+			, <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 26 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0 27 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0  5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0  7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			// row4
+			, <&gpio1  9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio1  8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			, <&gpio0  8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+	};
+};
+
+&vbatt {
+	io-channels = <&adc 2>; //P0.04
+};
+
+&default_transform {
+	col-offset = <0>;
+};

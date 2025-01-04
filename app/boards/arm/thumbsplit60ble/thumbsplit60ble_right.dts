@@ -50,6 +50,10 @@
 	};
 };
 
+&vbatt {
+	io-channels = <&adc 2>; //P0.04
+};
+
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
