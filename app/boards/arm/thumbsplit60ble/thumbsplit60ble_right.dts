@@ -48,6 +48,12 @@
 			, <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
 			, <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 	};
+
+	// Node name must match original "EXT_POWER" label to preserve user settings.
+	EXT_POWER {
+		compatible = "zmk,ext-power-generic";
+		control-gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+	};
 };
 
 &vbatt {
