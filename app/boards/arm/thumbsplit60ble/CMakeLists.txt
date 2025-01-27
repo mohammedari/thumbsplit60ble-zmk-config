@@ -1,0 +1,5 @@
+if(CONFIG_ZMK_DISPLAY AND CONFIG_THUMBSPLIT60_BLE_WIDGET_STATUS)
+  zephyr_library_include_directories(${CMAKE_SOURCE_DIR}/include)
+  zephyr_library_sources(widgets/peripheral_battery_status.c)
+  zephyr_library_sources(custom_status_screen.c)
+endif()
