@@ -2,7 +2,7 @@ file_format: "1"
 id: thumbsplit60ble
 name: Thumbsplit60 BLE
 type: board
-url: https://github.com/mohammedari/zmk
+url: https://github.com/mohammedari/thumbsplit60ble-zmk-config
 requires: []
 exposes: [nice_view_spi]
 features:

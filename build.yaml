@@ -18,3 +18,8 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
+include:
+  - board: thumbsplit60ble_left
+  - board: thumbsplit60ble_right
+    shield: nice_view
+
