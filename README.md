@@ -38,6 +38,11 @@ git clone https://github.com/zmkfirmware/zmk.git
 cd zmk
 ```
 
+Note current version of this repository is confirmed with ZMk commit of Dec 20, 2024. If your build goes wrong with the latest commit of the ZMK repository, please try to checkout this commit.
+```
+git checkout 3f6841c95ff9a82658576828895ebcba1b0a5f86
+```
+
 Then, clone this repository inside the repository as `zmk-config`.
 ```
 git clone https://github.com/mohammedari/thumbsplit60ble-zmk-config zmk-config
@@ -56,9 +61,8 @@ Please refer more detailed instruction on the [official document](https://zmk.de
 
 ### Note on ZMK Studio Support on Local Build
 
-If you want to build a firmware with supporting ZMK Studio, you can build with the additional parameters below.
+If you want to build a firmware with supporting ZMK Studio, you can build central (right) half with the additional parameters below.
 ```
-west build -p -b thumbsplit60ble_left  -S studio-rpc-usb-uart -d build/left  -- -DZMK_EXTRA_MODULES=/workspaces/zmk/zmk-config -DZMK_CONFIG=/workspaces/zmk/zmk-config/config -DCONFIG_ZMK_STUDIO=y
 west build -p -b thumbsplit60ble_right -S studio-rpc-usb-uart -d build/right -- -DZMK_EXTRA_MODULES=/workspaces/zmk/zmk-config -DZMK_CONFIG=/workspaces/zmk/zmk-config/config -DCONFIG_ZMK_STUDIO=y -DSHIELD=nice_view
 ```
 

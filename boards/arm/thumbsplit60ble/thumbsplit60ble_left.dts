@@ -4,6 +4,7 @@
  */
 
 #include "thumbsplit60ble.dtsi"
+#include "thumbsplit60ble-layouts.dtsi"
 
 / {
 	default_kscan: kscan_0 {
@@ -52,4 +53,9 @@
 
 &default_transform {
 	col-offset = <0>;
+};
+
+&default_physical_layout {
+    kscan = <&default_kscan>;
+    transform = <&default_transform>;
 };

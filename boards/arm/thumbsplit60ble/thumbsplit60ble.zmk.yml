@@ -8,6 +8,7 @@ exposes: [nice_view_spi]
 features:
   - keys
   - display
+  - studio
 siblings:
   - thumbsplit60ble_left
   - thumbsplit60ble_right

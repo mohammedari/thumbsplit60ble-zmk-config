@@ -22,4 +22,5 @@ include:
   - board: thumbsplit60ble_left
   - board: thumbsplit60ble_right
     shield: nice_view
-
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
