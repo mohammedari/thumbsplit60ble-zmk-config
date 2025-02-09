@@ -4,9 +4,9 @@ Custom designed battery powered fully wireless split keyboard with a display on 
 
 ![thumbsplit60ble](doc/thumbsplit60ble.jpg)
 
-Thumbsplit60 BLE firmware includes a custom widget to display peripheral (left half) battery and connection status on the central (right half).
+Thumbsplit60 BLE firmware includes a custom widget to display peripheral (left half) battery and connection status on the central (right half). This icon also indicates peripheral connection status: cross for not connected, and displaying battery status for connected.
 
-TODO: Write display indicator instruction
+Default firmware configuratin enables output, battery, and layer status. Please refer [ZMK dislay configuration page](https://zmk.dev/docs/config/displays) about ZMK's predefined widgets.
 
 ## Prebuilt Firmware Binaries
 
@@ -16,11 +16,28 @@ You can just download the pre-built firmware binaries to flash here:
 
 Plug your keyboard to the PC with USB and double-click the reset button next to the USB connecter to enter the bootloader. Drag and drop the firmware `uf2` file to the USB flash directory. After finishng file copy, the keyboard will reset automatically with the new firmware.
 
-Note that you have to write left and right firmware separetely to each corresponding half.
+> [!NOTE]
+> You have to write left and right firmware separetely to each corresponding half.
 
 ## Cutomize Keymap
 
-TODO: Support ZMK Studio
+Thumbsplit 60 BLE firmware Supports [ZMK Studio](https://zmk.dev/docs/features/studio). You can connect the keyboard via USB for [web version](https://zmk.dev/docs/features/studio) and USB and Bluetooth for [desktop version](https://zmk.studio/download). Please press `S` in adjust (pressing ralse and lower key) layer to unlock studio when `Unlock To Continue` message pops out on ZMK Studio.
+
+> [!TIP]
+> We recommend to connect via Bluetooth using desktop version as current version's USB connection unstable, and it cannot receverred even if reseting the keyboard. Connection via Bluetooth seems to be more stable and errors will be resolved after resetting the keyboard.
+
+![zmkstudio](doc/zmk_studio.png)
+
+Current default keymap has three layers (lower, raise, and adjust). Lower and raise layers are mostnly consists of just F1 ~ F12 keys, and adjust layers is mostly for device configuration. Some important keymaps are listed in the following table. 
+
+| Adjust Layer Key Map | Description |
+| --- | --- |
+| Esc       | Turn off device (need to press reset to wake up) |
+| Backspace | Clear current BT# connection info and start pairing |
+| 1-5       | Selecting BT1 ~ BT5 |
+| U         | Enable USB output |
+| B         | Enable Bluetooth output|
+| S         | Studio unlock  |
 
 ## Building Firwmare
 
